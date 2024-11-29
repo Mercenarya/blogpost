@@ -9,7 +9,7 @@ on:
       - main
       - master
 env:
-  PYTHON_VERSION: ${{ env.PYTHON_VERSION }}
+  PYTHON_VERSION:  env.PYTHON_VERSION
 
 jobs:
   build:
@@ -26,6 +26,6 @@ jobs:
       - name: install dependencies
         run: |
           pip install -r requirements.txt
-          
+
         
         

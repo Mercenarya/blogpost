@@ -9,7 +9,7 @@ on:
       - main
       - master
 env:
-  PYTHON_VERSION:  env.PYTHON_VERSION
+  PYTHON_VERSION:  3.13.0
 
 jobs:
   build:

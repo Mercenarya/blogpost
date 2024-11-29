@@ -1,0 +1,44 @@
+{% extends "home.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+{% endblock %}
+
+{% block title %}<title>Dashboard</title>{% endblock %}
+{% block content %}
+<div class="dashboard-page">
+    <p>This is Dashboard</p>
+    <div class="Message">{{ msg }}</div>
+    <br>
+
+    
+        <table id="dashboard-table">
+            <tr>
+                <th id = "id" name="id" class="id">
+                    User.ID
+                </th>
+                <th id = "username" name="username" class="username">
+                    Username
+                </th>
+                <th id = "email" name="email" class="email">
+                    Email
+                </th>
+                <th id = "role" name="role" class="role">
+                    Role
+                </th>
+            </tr>
+            {% for obj in users %}
+            <tr>
+            <form method="POST" action="{{ url_for('dashboard')}}">
+                <td><input type="hidden" name="id" value="{{ obj.id }}">{{ obj.id }}</td>
+                <td id = "username" name="username" class="username">{{ obj.username }}</td>
+                <td id = "email" name="email" class="email">{{ obj.email }}</td>
+                <td id = "role" name="role" class="role">{{ obj.role }}</td>
+                <td><button type="submit">Delete</button></td>
+            </form>
+            </tr>
+            {% endfor %}
+    
+        </table>
+    
+</div>
+{% endblock %}
